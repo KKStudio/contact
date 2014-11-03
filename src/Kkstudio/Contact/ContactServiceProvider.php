@@ -30,6 +30,7 @@ class ContactServiceProvider extends ServiceProvider {
 		});
 
 		\Route::get('contact', '\Kkstudio\Contact\Controllers\ContactController@contact');
+		\Route::post('contact', '\Kkstudio\Contact\Controllers\ContactController@create');
 
 	}
 
