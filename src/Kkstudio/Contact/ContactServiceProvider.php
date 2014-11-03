@@ -23,7 +23,7 @@ class ContactServiceProvider extends ServiceProvider {
 		\Route::group([ 'prefix' => 'admin', 'before' => 'admin'], function() {
 
 			\Route::get('contact', '\Kkstudio\Contact\Controllers\ContactController@admin');
-			\Route::get('contact/{id}', '\Kkstudio\Contact\Controllers\ContactController@show')->where('id', '0-9');
+			\Route::get('contact/{id}', '\Kkstudio\Contact\Controllers\ContactController@show')->where('id', '[0-9]');
 			\Route::get('contact/{id}/delete', '\Kkstudio\Contact\Controllers\ContactController@delete');
 			\Route::post('contact/{id}/delete', '\Kkstudio\Contact\Controllers\ContactController@postDelete');
 
