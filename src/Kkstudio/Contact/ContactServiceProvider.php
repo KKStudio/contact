@@ -20,7 +20,7 @@ class ContactServiceProvider extends ServiceProvider {
 	{
 		$this->package('kkstudio/contact');
 
-		\Route::group([ 'prefix' => 'admin', 'middleware' => 'admin'], function() {
+		\Route::group([ 'prefix' => 'admin', 'before' => 'admin'], function() {
 
 			\Route::get('contact', '\Kkstudio\Contact\Controllers\ContactController@admin');
 			\Route::get('contact/{id}', '\Kkstudio\Contact\Controllers\ContactController@show');
