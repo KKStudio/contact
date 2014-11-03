@@ -2,13 +2,23 @@
 
 @section('content')
 
-	<h3 class="pull-left">Wiadomości</h3>
+	<h3 class="pull-left">Kontakt</h3>
 
 	<div class=""> 
 
 		<a href="{{ url('admin/contact/settings') }}" class="btn btn-default btn-lg pull-right" style="margin-left: 10px;">
 			<i class="glyphicon glyphicon-cog"></i>
 		</a>
+
+		{!! Form::open([ 'url' => 'admin/menu/create']) !!}
+
+			{!! Form::hidden('display_name', 'Kontakt') !!}
+			{!! Form::hidden('route', 'contact') !!}
+			{!! Form::hidden('params', json_encode([])) !!}
+
+			{!! Form::submit('Dodaj do menu', [ 'class' => 'pull-right btn btn-lg btn-warning']) !!}
+
+		{!! Form::close() !!}
 
 		<div class="clearfix"></div>
 		@if(count($messages))
