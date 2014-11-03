@@ -5,6 +5,13 @@ use Kkstudio\Contact\Repositories\ContactRepository;
 
 class ContactController extends Controller {
 
+	protected $messages;
+
+	public function __construct(ContactRepository $messages)
+	{
+		$this->messages = $messages;
+	}
+
 	public function contact() 
 	{
 		return v('contact.form');
@@ -12,19 +19,19 @@ class ContactController extends Controller {
 
 	// Admin
 
-	public function admin(ContactRepository $messages)
+	public function admin()
 	{
-		return \View::make('contact::admin')->with('messages', $messages->all());
+		return \View::make('contact::admin')->with('messages', $this->messages->all());
 	}
 
-	public function show($id, ContactRepository $messages)
+	public function show($id)
 	{
-		$message = $messages->get($id);
+		$message = $this->messages->get($id);
 
 		return \View::make('contact::show')->with('message', $message);
 	}
 
-	public function create(ContactRepository $messages)
+	public function create()
 	{
 		$validator = \Validator::make(
 		    array(
@@ -51,7 +58,7 @@ class ContactController extends Controller {
 			return \Redirect::back()->withInput();			
 		}
 
-		$message = $messages->create($email, $title, $content);
+		$message = $this->messages->create($email, $title, $content);
 
 		m('Contact')->notify(
 						'contact-'. $message->id, 
@@ -66,16 +73,16 @@ class ContactController extends Controller {
 
 	}
 
-	public function delete($id, ContactRepository $messages) 
+	public function delete($id) 
 	{
-		$message = $messages->get($id);
+		$message = $this->messages->get($id);
 
 		return \View::make('contact::delete')->with('message', $message);
 	}
 
-	public function postDelete($id, ContactRepository $messages) 
+	public function postDelete($id) 
 	{
-		$message = $messages->get($id);
+		$message = $this->messages->get($id);
 		$message->delete();
 
 		\Flash::success('Wiadomość usunięta.');
