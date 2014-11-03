@@ -27,6 +27,7 @@ class ContactController extends Controller {
 	public function show($id)
 	{
 		$message = $this->messages->get($id);
+		m('Contact')->denotify('contact-'.$id);
 
 		return \View::make('contact::show')->with('message', $message);
 	}
@@ -76,6 +77,7 @@ class ContactController extends Controller {
 	public function delete($id) 
 	{
 		$message = $this->messages->get($id);
+		m('Contact')->denotify('contact-'.$id);
 
 		return \View::make('contact::delete')->with('message', $message);
 	}
