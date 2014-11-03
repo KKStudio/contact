@@ -6,7 +6,7 @@
 
 	<div class=""> 
 
-		{!! Form::open([ 'url' => 'admin/contact/' . $message->slug . '/delete']) !!}
+		{!! Form::open([ 'url' => 'admin/contact/' . $message->id . '/delete']) !!}
 
 			{!! Form::submit('Potwierdź usunięcie', [ 'class' => 'btn btn-lg btn-danger pull-right']) !!}
 
