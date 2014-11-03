@@ -38,7 +38,7 @@ class ContactController extends Controller {
 		if($validator->fails())
 		{
 			\Flash::error('Proszę wpisać poprawny adres e-mail.');
-			return \Redirect::back();
+			return \Redirect::back()->withInput();
 		}
 
 		$email = \Request::get('email');
@@ -48,10 +48,10 @@ class ContactController extends Controller {
 		if(strlen($title) == 0 && strlen($content))
 		{
 			\Flash::error('Proszę uzupełnić wszystkie pola.');
-			return \Redirect::back();			
+			return \Redirect::back()->withInput();			
 		}
 
-		$messages->create($email, $title, $contact);
+		$messages->create($email, $title, $content);
 
 		\Flash::success('Wiadomość została wysłana.');
 
