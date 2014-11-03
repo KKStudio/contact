@@ -11,7 +11,7 @@
 		</a>
 
 		<div class="clearfix"></div>
-		@if(count($message))
+		@if(count($messages))
 
 		<table class="table table-striped">
 			<thead>
@@ -22,7 +22,7 @@
 				<th></th>
 			</thead>
 			<tbody>
-				@foreach($message as $message)
+				@foreach($messages as $message)
 				<tr>
 					<td>{{ $message->id }}</td>
 					<td><a href="{{ url('admin/contact/' . $message->id ) }}">{{ $message->email }}</a></td>
