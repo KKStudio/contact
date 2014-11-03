@@ -7,6 +7,8 @@
 
 	<br>
 
+	<div class="clearfix"></div>
+
 	<div class=""> 
 
 			<p><a href="mailto:{{ $message->email }}">{{ $message->email }}</a></p>

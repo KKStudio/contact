@@ -51,7 +51,14 @@ class ContactController extends Controller {
 			return \Redirect::back()->withInput();			
 		}
 
-		$messages->create($email, $title, $content);
+		$message = $messages->create($email, $title, $content);
+
+		m('Contact')->notify(
+						'contact-'. $message->id, 
+						'Nowa wiadomość od <b>'.$email.'</b>',
+						'admin/contact/' . $message->id,
+						'envelope' 
+					);
 
 		\Flash::success('Wiadomość została wysłana.');
 
