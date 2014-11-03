@@ -35,10 +35,10 @@
 				@foreach($messages as $message)
 				<tr>
 					<td>{{ $message->id }}</td>
-					<td><a href="{{ url('admin/contact/' . $message->id ) }}">{{ $message->email }}</a></td>
-					<td><a href="{{ url('admin/contact/' . $message->id ) }}">{{ $message->title }}</a></td>
+					<td>{{ $message->email }}</td>
+					<td>{{ $message->title }}</td>
 					<td>
-						<a href="{{ url('admin/contact/' . $message->id ) }}" class="btn btn-sm btn-secondary">pokaż</a>
+						<a href="{{ url('admin/contact/' . $message->id ) }}" class="btn btn-sm btn-primary">pokaż</a>
 					</td>
 					<td>
 						<a href="{{ url('admin/contact/' . $message->slug . '/delete') }}" class="btn btn-sm btn-danger">usuń</a>

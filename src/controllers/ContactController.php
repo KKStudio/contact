@@ -45,7 +45,7 @@ class ContactController extends Controller {
 		$title = \Request::get('title');
 		$content = \Request::get('content');
 
-		if(strlen($title) == 0 && strlen($content))
+		if(strlen($title) == 0 && strlen($content) == 0)
 		{
 			\Flash::error('Proszę uzupełnić wszystkie pola.');
 			return \Redirect::back()->withInput();			
