@@ -5,6 +5,13 @@ use Kkstudio\Contact\Repositories\ContactRepository;
 
 class ContactController extends Controller {
 
+	public function contact() 
+	{
+		return v('contact.form');
+	}
+
+	// Admin
+
 	public function admin(ContactRepository $messages)
 	{
 		return \View::make('contact::admin')->with('messages', $messages->all());
@@ -23,7 +30,7 @@ class ContactController extends Controller {
 		    array(
 		        'email' => \Request::get('email')
 		    ),
-		    array(,
+		    array(
 		        'email' => 'required|email'
 		    )
 		); 

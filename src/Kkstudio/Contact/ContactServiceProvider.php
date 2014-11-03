@@ -28,6 +28,9 @@ class ContactServiceProvider extends ServiceProvider {
 			\Route::post('contact/{id}/delete', '\Kkstudio\Contact\Controllers\ContactController@postDelete');
 
 		});
+
+		\Route::get('contact', '\Kkstudio\Contact\Controllers\ContactController@contact');
+
 	}
 
 	/**
