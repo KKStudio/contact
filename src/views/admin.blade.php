@@ -41,7 +41,7 @@
 						<a href="{{ url('admin/contact/' . $message->id ) }}" class="btn btn-sm btn-primary">pokaż</a>
 					</td>
 					<td>
-						<a href="{{ url('admin/contact/' . $message->slug . '/delete') }}" class="btn btn-sm btn-danger">usuń</a>
+						<a href="{{ url('admin/contact/' . $message->id . '/delete') }}" class="btn btn-sm btn-danger">usuń</a>
 					</td>
 				</tr>
 				@endforeach
