@@ -9,6 +9,7 @@ class ContactController extends Controller {
 
 	public function __construct(ContactRepository $messages)
 	{
+		if(! m('Contact')->enabled()) return \App::abort('404');
 		$this->messages = $messages;
 	}
 

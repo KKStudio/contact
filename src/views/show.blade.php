@@ -4,8 +4,8 @@
 
 	<h3 class="pull-left">Wiadomość #{{ $message->id }}</h3>
 	<a href="{{ url('admin/contact') }}" class="btn btn-lg btn-warning pull-right">Powrót do wiadomości</a>
-	<br>
-	<a class="btn btn-lg btn-primary pull-right" href="mailto:{{ $message->email }}?subject=Odpowiedź%20ze%20strony%20{{ url('/')}}&body=Twoja%20wiadomość:%0A%0A{{$message->content}}%0A%0A%0A%0AOdpowiedź:%0A%0A">Odpowiedz</a>
+
+	<a style="margin-right: 10px" class="btn btn-lg btn-primary pull-right" href="mailto:{{ $message->email }}?subject=Odpowiedź%20ze%20strony%20{{ url('/')}}&body=Twoja%20wiadomość:%0A%0A{{$message->content}}%0A%0A%0A%0AOdpowiedź:%0A%0A">Odpowiedz</a>
 
 	<br>
 
